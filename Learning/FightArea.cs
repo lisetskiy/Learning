@@ -26,7 +26,7 @@ namespace Learning
 
         private void Update(FightContext context)
         {
-            foreach (var command in context.Commands)
+            foreach (var command in context.Commands) ;
         }
     }
 }
