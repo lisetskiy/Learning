@@ -43,6 +43,14 @@ namespace Learning
             return alive != null;
         }
 
+        public void WriteFromCommand(string message)
+        {
+            var old = Console.ForegroundColor;
+            Console.ForegroundColor = _color;
+            Console.WriteLine(message);
+            Console.ForegroundColor = old;
+        }
+
         public IEnumerator<Player> GetEnumerator()
         {
             return _players.GetEnumerator();

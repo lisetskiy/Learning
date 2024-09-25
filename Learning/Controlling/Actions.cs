@@ -4,7 +4,7 @@ namespace Learning.Controlling
 {
     public static class Actions
     {
-        public static IFightAction Attack(Creature victim)
+        public static IFightAction Attack(Player victim)
         {
             return new AttackAction(victim);
         }

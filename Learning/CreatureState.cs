@@ -1,4 +1,5 @@
 ﻿
+
 namespace Learning
 {
     public readonly struct ReadOnlyCreatureState
@@ -8,6 +9,13 @@ namespace Learning
         public float Damage { get; init; }
 
         public float Armor { get; init; }
+
+        public ReadOnlyCreatureState(float maxHealth, float damage, float armor)
+        {
+            MaxHealth = maxHealth;
+            Damage = damage;
+            Armor = armor;
+        }
     }
 
     public class CreatureState
@@ -31,6 +39,16 @@ namespace Learning
             MaxHealth = _base.MaxHealth;
             Damage = _base.Damage;
             Armor = _base.Armor;
+        }
+
+        public ReadOnlyCreatureState ToReadOnly()
+        {
+            return new ReadOnlyCreatureState
+            {
+                MaxHealth = MaxHealth,
+                Armor = Armor,
+                Damage = Damage
+            };
         }
     }
 }
