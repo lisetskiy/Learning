@@ -3,16 +3,20 @@ namespace Learning.Controlling
 {
     public class AttackAction : IFightAction
     {
-        private readonly Creature _victim;
+        private readonly Player _victim;
 
-        public AttackAction(Creature victim)
+        public AttackAction(Player victim)
         {
             _victim = victim;
         }
 
-        public void Execute(Creature executor)
+        public void Execute(Player executor)
         {
-            _victim.ApplyDamage(executor);
+            var state = executor.Creature.GetCurrentState();
+            _victim.Creature.ApplyDamage(state.Damage);
+
+            Console.WriteLine($"игрок {executor.Name} наносит {state.Damage} урона игроку {_victim.Name}");
+            Thread.Sleep(2000);
         }
     }
 }

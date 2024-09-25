@@ -12,11 +12,20 @@ namespace Learning
         public Creature(ReadOnlyCreatureState baseState)
         {
             _state = new CreatureState(baseState);
+            Health = _state.MaxHealth;
         }
 
-        public void ApplyDamage(Creature attacker)
+        public void ApplyDamage(float damage)
         {
+            var state = GetCurrentState();
 
+            var totalDamage = Math.Max(damage - state.Armor, 1);
+            Health -= damage;
+        }
+
+        public ReadOnlyCreatureState GetCurrentState()
+        {
+            return _state.ToReadOnly();
         }
     }
 }

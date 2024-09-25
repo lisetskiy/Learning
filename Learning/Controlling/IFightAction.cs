@@ -4,7 +4,7 @@ namespace Learning.Controlling
 {
     public interface IFightAction
     {
-        void Execute(Creature executor);
+        void Execute(Player executor);
     }
 
     public class EmptyAction : IFightAction
@@ -15,8 +15,10 @@ namespace Learning.Controlling
         {
         }
 
-        public void Execute(Creature executor)
+        public void Execute(Player executor)
         {
+            Console.WriteLine($"{executor.Name} пропускает ход");
+            Thread.Sleep(1000);
         }
     }
 }

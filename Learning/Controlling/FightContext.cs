@@ -20,7 +20,10 @@ namespace Learning.Controlling
 
             var enemyCommands = _commands.Where(x => x != playerCommand);
 
-            var enemies = _commands.SelectMany(x => x);
+            var enemies = enemyCommands
+                .SelectMany(x => x)
+                .Where(x => x.Creature.IsDead == false);
+
             return enemies;
         }
     }

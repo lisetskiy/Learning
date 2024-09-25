@@ -1,3 +1,7 @@
 ﻿using Learning;
+using Learning.Factories;
 
-var area = new FightArea();
+var factory = new CommandFactory();
+
+var area = new FightArea(factory);
+area.Run();
