@@ -59,5 +59,9 @@ namespace Learning.Controlling
 
             return Actions.Attack(victim);
         }
+
+        private IFightAction? HandleSpell(FightContext context, Player player)
+        {
+        }
     }
 }

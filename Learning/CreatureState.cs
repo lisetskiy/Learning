@@ -22,7 +22,7 @@ namespace Learning
     {
         private readonly ReadOnlyCreatureState _base;
 
-        public float MaxHealth { get; set; }
+        public float MaxHealth { get; }
 
         public float Damage { get; set; }
 
@@ -36,7 +36,6 @@ namespace Learning
 
         public void Reset()
         {
-            MaxHealth = _base.MaxHealth;
             Damage = _base.Damage;
             Armor = _base.Armor;
         }
